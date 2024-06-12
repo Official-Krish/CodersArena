@@ -1,10 +1,9 @@
-import { Button } from "@repo/ui/button";
-import Image from "next/image";
+import { LandingPage } from "./Pages/LandingPage";
 
 export default function Home() {
   return (
     <div>
-      Hi there
+      <LandingPage/>
     </div>
   );
 }
