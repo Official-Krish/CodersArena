@@ -1,4 +1,5 @@
 import { Appbar } from "../components/Appbar"
+import { Footer } from "../components/Footer"
 import { Hero } from "../components/Hero"
 
 export const LandingPage = () => {
@@ -6,6 +7,7 @@ export const LandingPage = () => {
         <div>
             <Appbar/>
             <Hero/>
+            <Footer/>
         </div>
         
     )

@@ -1,6 +1,5 @@
 import Image from "next/image";
 import HeroImg from "../../assets/HeroImg.jpeg";
-import { Footer } from "./Footer";
 export const Hero = () => {
     return (
         <div>
@@ -24,7 +23,6 @@ export const Hero = () => {
                     </div>
                 </div>
             </div>
-            <Footer/>
         </div>
         
         
