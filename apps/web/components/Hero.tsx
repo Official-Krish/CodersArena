@@ -1,5 +1,5 @@
 import Image from "next/image";
-import HeroImg from "../../assets/HeroImg.jpeg";
+import HeroImg from "../assets/HeroImg.jpeg";
 export const Hero = () => {
     return (
         <div>
