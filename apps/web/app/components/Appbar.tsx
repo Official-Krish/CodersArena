@@ -1,3 +1,5 @@
+import Avatar from "./Avatar"
+
 export const Appbar = () => {
     return (
         <div className="flex justify-between py-4 px-8 bg-gray-900 text-white">
@@ -16,7 +18,7 @@ export const Appbar = () => {
                 </div>
             </div>
             <div>
-                Avatar Component
+                <Avatar/>
             </div>
         </div>
     )
