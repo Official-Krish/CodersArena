@@ -5,6 +5,7 @@ import { NextAuthOptions } from "next-auth";
 import { JWT } from "next-auth/jwt";
 import { JWTPayload, SignJWT, importJWK } from "jose";
 import { Session } from "next-auth";
+import GoogleProvider from "next-auth/providers/google";
 
 interface token extends JWT {
   uid: string;
@@ -115,6 +116,11 @@ export const authOptions = {
           return null;
         }
       },
+    }),
+
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID || "",
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
     }),
   ],
   secret: process.env.NEXTAUTH_SECRET || "secr3t",
