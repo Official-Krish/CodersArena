@@ -1,6 +1,9 @@
+"use client";
+import { signIn, useSession } from "next-auth/react";
 import Avatar from "./Avatar"
 
 export const Appbar = () => {
+    const { data: session } = useSession();
     return (
         <div className="flex justify-between py-4 px-8 bg-gray-900 text-white">
             <div>
@@ -17,9 +20,14 @@ export const Appbar = () => {
                     Standings
                 </div>
             </div>
+            {session ? (
             <div>
                 <Avatar/>
             </div>
+            ) : (
+                <button onClick={() => signIn()}>Sign in</button>
+            )}
+            
         </div>
     )
 } 

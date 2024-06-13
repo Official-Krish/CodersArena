@@ -1,4 +1,5 @@
   "use client"
+import { signOut } from "next-auth/react";
   import { useState, useRef, useEffect } from "react";
 
   const Avatar = () => {
@@ -38,7 +39,7 @@
                     <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                         <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Profile</a>
                         <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Settings</a>
-                        <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Logout</a>
+                        <button className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={() => signOut()}>Logout</button>
                     </div>
                 </div>
             )}
