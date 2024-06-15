@@ -1,5 +1,5 @@
 Problem Name: "Neon Number"
-Function Name: stack<int> checkNeonNumber
+Function Name: checkNeonNumber
 Input Structure:
 Input Field: int num1
 Output Structure:
