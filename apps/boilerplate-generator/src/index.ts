@@ -20,9 +20,9 @@ function generatePartialBoilerPlate(generatorFilePath : string){
         fs.mkdirSync(boilerplatePath, { recursive: true });
     }
 
-    fs.writeFileSync(path.join(boilerplatePath, "cpp.h"), cppCode);
-    fs.writeFileSync(path.join(boilerplatePath, "js.js"), jsCode);
-    fs.writeFileSync(path.join(boilerplatePath, "python.py"), pythonCode);
+    fs.writeFileSync(path.join(boilerplatePath, "function.cpp"), cppCode);
+    fs.writeFileSync(path.join(boilerplatePath, "function.js"), jsCode);
+    fs.writeFileSync(path.join(boilerplatePath, "function.py"), pythonCode);
 
     console.log("Boilerplate generated successfully");
 }
@@ -44,11 +44,11 @@ function generateFullBoilerPlate(generatorFilePath : string){
         fs.mkdirSync(boilerplatePath, { recursive: true });
     }
 
-    fs.writeFileSync(path.join(boilerplatePath, "cpp.h"), cppCode);
-    fs.writeFileSync(path.join(boilerplatePath, "js.js"), jsCode);
-    fs.writeFileSync(path.join(boilerplatePath, "python.py"), pythonCode);
+    fs.writeFileSync(path.join(boilerplatePath, "function.cpp"), cppCode);
+    fs.writeFileSync(path.join(boilerplatePath, "function.js"), jsCode);
+    fs.writeFileSync(path.join(boilerplatePath, "function.py"), pythonCode);
 
-    console.log("Boilerplate generated successfully");
+    console.log("Full Boilerplate Code generated successfully");
 }
 
 generatePartialBoilerPlate(process.env.GENERATOR_FILE_PATH ?? "");
