@@ -84,6 +84,60 @@ export class FullProblemDefinitionParser {
         `;
     }
 
+    generateRust(): string {
+        const inputs = this.inputFields
+          .map((field) => `${field.name}: ${this.mapTypeToRust(field.type)}`)
+          .join(", ");
+        const inputReads = this.inputFields
+          .map((field) => {
+            if (field.type.startsWith("list<")) {
+              return `let size_${field.name}: usize = lines.next().and_then(|line| line.parse().ok()).unwrap_or(0);\n\tlet ${field.name}: ${this.mapTypeToRust(field.type)} = parse_input(lines, size_${field.name});`;
+            } else {
+              return `let ${field.name}: ${this.mapTypeToRust(field.type)} = lines.next().unwrap().parse().unwrap();`;
+            }
+        })
+        .join("\n  ");
+        const containsVector = this.inputFields.find((field) =>
+          field.type.startsWith("list<")
+        );
+        const outputType = this.mapTypeToRust(this.outputFields[0].type);
+        const functionCall = `let result = ${this.functionName}(${this.inputFields.map((field) => field.name).join(", ")});`;
+        const outputWrite = `println!("{}", result);`;
+    
+        return `use std::fs::read_to_string;
+        use std::io::{self};
+        use std::str::Lines;
+    
+        ##USER_CODE_HERE##
+    
+        fn main() -> io::Result<()> {
+        let input = read_to_string("/dev/problems/${this.problemName.toLowerCase().replace(" ", "-")}/tests/inputs/##INPUT_FILE_INDEX##.txt")?;
+        let mut lines = input.lines();
+        ${inputReads}
+        ${functionCall}
+        ${outputWrite}
+        Ok(())
+        }${
+        containsVector
+            ? `\nfn parse_input(mut input: Lines, size_arr: usize) -> Vec<i32> {
+            let arr: Vec<i32> = input
+                .next()
+                .unwrap_or_default()
+                .split_whitespace()
+                .filter_map(|x| x.parse().ok())
+                .collect();
+        
+            if size_arr == 0 {
+                Vec::new()
+            } else {
+                arr
+            }
+        }`
+            : ""
+        }
+        `;
+    }
+
     generateJs(): string {
         const inputs = this.inputFields.map((field) => field.name).join(", ");
         const inputReads = this.inputFields
@@ -160,7 +214,28 @@ export class FullProblemDefinitionParser {
         }
     }
 
-    
+    mapTypeToRust(type: string): string {
+        switch (type) {
+          case "int":
+            return "i32";
+          case "float":
+            return "f64";
+          case "string":
+            return "String";
+          case "bool":
+            return "bool";
+          case "list<int>":
+            return "Vec<i32>";
+          case "list<float>":
+            return "Vec<f64>";
+          case "list<string>":
+            return "Vec<String>";
+          case "list<bool>":
+            return "Vec<bool>";
+          default:
+            return "unknown";
+        }
+    }    
 
 
 }

@@ -15,6 +15,7 @@ function generatePartialBoilerPlate(generatorFilePath : string){
     const cppCode = parser.generateCpp();
     const jsCode = parser.generateJs();
     const pythonCode = parser.generatePython();
+    const rustCode = parser.generateRust();
 
     if (!fs.existsSync(boilerplatePath)){
         fs.mkdirSync(boilerplatePath, { recursive: true });
@@ -23,6 +24,7 @@ function generatePartialBoilerPlate(generatorFilePath : string){
     fs.writeFileSync(path.join(boilerplatePath, "function.cpp"), cppCode);
     fs.writeFileSync(path.join(boilerplatePath, "function.js"), jsCode);
     fs.writeFileSync(path.join(boilerplatePath, "function.py"), pythonCode);
+    fs.writeFileSync(path.join(boilerplatePath, "function.rs"), rustCode);
 
     console.log("Boilerplate generated successfully");
 }
@@ -39,6 +41,7 @@ function generateFullBoilerPlate(generatorFilePath : string){
     const cppCode = parser.generateCpp();
     const jsCode = parser.generateJs();
     const pythonCode = parser.generatePython();
+    const rustCode = parser.generateRust();
 
     if (!fs.existsSync(boilerplatePath)){
         fs.mkdirSync(boilerplatePath, { recursive: true });
@@ -47,6 +50,7 @@ function generateFullBoilerPlate(generatorFilePath : string){
     fs.writeFileSync(path.join(boilerplatePath, "function.cpp"), cppCode);
     fs.writeFileSync(path.join(boilerplatePath, "function.js"), jsCode);
     fs.writeFileSync(path.join(boilerplatePath, "function.py"), pythonCode);
+    fs.writeFileSync(path.join(boilerplatePath, "function.rs"), rustCode);
 
     console.log("Full Boilerplate Code generated successfully");
 }
