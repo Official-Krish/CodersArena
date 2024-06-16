@@ -25,6 +25,24 @@ export const Contests = async () => {
               />
             ))}
           </div>
+
+          <div className="font-bold text-3xl">
+            Previous Contests
+          </div>
+            <div className="text-gray-500 dark:text-gray-400 py-3">
+              Check out the previous contests on Coders Arena
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {pastContests.map((contest) => (
+              <ContestCard
+                key={contest.id}
+                title={contest.title}
+                id={contest.id}
+                startTime={contest.startTime}
+                endTime={contest.endTime}
+              />
+            ))}
+          </div>
         </div>
     )
 }
