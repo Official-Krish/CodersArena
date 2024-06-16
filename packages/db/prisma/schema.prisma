@@ -130,6 +130,15 @@ model ContestPoints {
   @@unique([contestId, userId])
 }
 
+model languages {
+  id          Int      @id @default(autoincrement())
+  name        String?  @db.VarChar
+  compile_cmd String?  @db.VarChar
+  run_cmd     String?  @db.VarChar
+  source_file String?  @db.VarChar
+  is_archived Boolean? @default(false)
+}
+
 enum SubmissionResult {
   AC
   REJECTED
