@@ -16,7 +16,8 @@
   "dependencies": {
     "@prisma/client": "5.15.0",
     "@repo/common": "*",
-    "prisma": "^5.12.0"
+    "prisma": "^5.12.0",
+    "tailwind-merge": "^2.3.0"
   },
   "exports": {
     "./client": "./src/index.ts"

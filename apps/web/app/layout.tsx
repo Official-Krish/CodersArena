@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={chivo.variable + " " + rubik.variable}>
-      <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+      <ThemeProvider attribute="class" defaultTheme="white" enableSystem disableTransitionOnChange>
         <Providers>
           <Appbar />
           {children}
