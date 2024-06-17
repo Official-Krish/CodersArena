@@ -8,3 +8,12 @@ export const getProblems = async () => {
     });
     return problems;
 }
+
+export const getProblem = async (ProblemId: string) => {
+    const problem = await db.problem.findFirst({
+        where: {
+            id : ProblemId
+        },
+    });
+    return problem;
+}
