@@ -2,14 +2,24 @@
 import { signIn, useSession } from "next-auth/react";
 import Avatar from "./Avatar"
 import Link from "next/link";
-
+import Image from "next/image";
+import Logo2 from "../assets/Logo2.png";
 export const Appbar = () => {
     const { data: session } = useSession();
     return (
-        <div className="flex justify-between py-4 px-8 bg-gray-900 text-white">
-            <Link href ="/">
-                Coders Arena
-            </Link >
+        <div className="flex justify-between py-8 px-8 bg-gray-900 text-white">
+            <div className="flex justify-center">
+                <Link href ="/">
+                <Image
+                    src={Logo2}
+                    width="28"
+                    height="10"
+                    alt="Logo"
+                    className="rounded-lg mx-auto"
+                />
+                CodersArena
+            </Link>
+            </div>
             <div className="flex justify-between mr-7"> 
                 <div className="mr-8">
                     Contests
