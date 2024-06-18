@@ -9,8 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@marsidev/react-turnstile": "^0.7.1",
     "@repo/ui": "*",
     "@tailwindcss/typography": "^0.5.13",
+    "axios": "^1.7.2",
     "next": "15.0.0-rc.0",
     "next-themes": "^0.3.0",
     "react": "19.0.0-rc-f994737d14-20240522",
