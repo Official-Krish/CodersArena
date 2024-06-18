@@ -9,11 +9,40 @@ export const getProblems = async () => {
     return problems;
 }
 
-export const getProblem = async (ProblemId: string) => {
+export const getProblem = async (problemId: string, contestId?: string) => {
+    if (contestId) {
+        const contest = await db.contest.findFirst({
+            where: {
+                id: contestId,
+                hidden: false,
+            },
+        });
+        if (!contest) {
+            return null;
+        }
+  
+        const problem = await db.problem.findFirst({
+            where: {
+                id: problemId,
+                contests: {
+                    some: {
+                        contestId: contestId,
+                    },
+                },
+            },
+            include: {
+                defaultCode: true,
+            },
+        });
+        return problem;
+    }
     const problem = await db.problem.findFirst({
         where: {
-            id : ProblemId
+            id: problemId,
+        },
+        include: {
+            defaultCode: true,
         },
     });
     return problem;
-}
+};
