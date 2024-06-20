@@ -1,11 +1,19 @@
 {
   "name": "@repo/common",
   "exports": {
-    "./language": "./language/index.ts"
+    "./language": "./language/index.ts",
+    "./zod": "./zod/index.ts"
   },
   "version": "1.0.0",
-  "description": "",
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "description": "",
+  "dependencies": {
+    "zod": "^3.23.8"
+  }
 }
