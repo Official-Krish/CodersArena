@@ -10,20 +10,23 @@ export const Appbar = () => {
         <div className="flex justify-between py-8 px-8 bg-gray-900 text-white">
             <div className="flex justify-center">
                 <Link href ="/">
-                <Image
-                    src={Logo2}
-                    width="28"
-                    height="10"
-                    alt="Logo"
-                    className="rounded-lg mx-auto"
-                />
-                CodersArena
-            </Link>
+                    <Image
+                        src={Logo2}
+                        width="28"
+                        height="10"
+                        alt="Logo"
+                        className="rounded-lg mx-auto"
+                    />
+                    CodersArena
+                </Link>
             </div>
-            <div className="flex justify-between mr-7"> 
-                <div className="mr-8">
-                    Contests
-                </div>
+            <div className="flex justify-between mr-7">
+                <Link href="/contests">
+                    <div className="mr-8">
+                        Contests
+                    </div>
+                </Link>
+                
                 <div className="mr-8">
                     Problem
                 </div>
