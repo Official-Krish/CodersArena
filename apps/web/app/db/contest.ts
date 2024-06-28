@@ -29,3 +29,12 @@ export const getExistingContest = async () => {
     });
     return contests;
 } 
+
+export const getContestsWithLeaderboard = async () => {
+    const contests = await db.contest.findMany({
+        where: {
+            leaderboard: true,
+        },
+    });
+    return contests;
+};
