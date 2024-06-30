@@ -20,9 +20,11 @@ export const Appbar = () => {
                     </div>
                 </Link>
                 
-                <div className="mr-8">
-                    Problems
-                </div>
+                <Link href="/problems">
+                    <div className="mr-8">
+                        Problems
+                    </div>
+                </Link>
                 <div>
                     Standings
                 </div>
