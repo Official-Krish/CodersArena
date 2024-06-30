@@ -21,7 +21,7 @@ export const Appbar = () => {
                 </Link>
                 
                 <div className="mr-8">
-                    Problem
+                    Problems
                 </div>
                 <div>
                     Standings

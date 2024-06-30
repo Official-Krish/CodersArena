@@ -6,7 +6,7 @@ export const LandingPage = () => {
     return (
         <div>
             <Hero/>
-            {/* <Contests/> */}
+            <Contests/>
             <Problems/>
             
         </div>
