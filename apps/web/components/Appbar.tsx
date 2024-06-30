@@ -7,16 +7,9 @@ import Logo2 from "../assets/Logo2.png";
 export const Appbar = () => {
     const { data: session } = useSession();
     return (
-        <div className="flex justify-between py-8 px-8 bg-gray-900 text-white">
+        <div className="flex justify-between py-8 px-8 bg-black text-white">
             <div className="flex justify-center">
                 <Link href ="/">
-                    <Image
-                        src={Logo2}
-                        width="28"
-                        height="10"
-                        alt="Logo"
-                        className="rounded-lg mx-auto"
-                    />
                     CodersArena
                 </Link>
             </div>
