@@ -4,7 +4,7 @@ import { ProblemCard } from "./ProblemCard";
 export const Problems = async () => {
     const getProblem = await getProblems();
     return (
-        <div className="py-12 px-10">
+        <div className="py-4 px-10 mb-8">
             <div className="font-bold text-3xl">
                 Popular Problems
             </div>

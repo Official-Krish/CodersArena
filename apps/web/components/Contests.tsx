@@ -7,7 +7,7 @@ export const Contests = async () => {
         UpcomingContest()
     ]);
     return (
-        <div className="py-12 px-4">
+        <div className="py-12 px-10">
             <div className="font-bold text-3xl">
                 Upcoming Contests
             </div>
@@ -26,7 +26,7 @@ export const Contests = async () => {
             ))}
           </div>
 
-          <div className="font-bold text-3xl">
+          <div className="font-bold text-3xl pt-6">
             Previous Contests
           </div>
             <div className="text-gray-500 dark:text-gray-400 py-3">
