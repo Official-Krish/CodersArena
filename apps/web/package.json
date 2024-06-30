@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@icons-pack/react-simple-icons": "^9.6.0",
     "@marsidev/react-turnstile": "^0.7.1",
     "@repo/ui": "*",
     "@tailwindcss/typography": "^0.5.13",
