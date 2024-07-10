@@ -4,6 +4,7 @@ import Avatar from "./Avatar"
 import Link from "next/link";
 import Image from "next/image";
 import Logo2 from "../assets/Logo2.png";
+import { ModeToggle } from "./ModeToggle";
 export const Appbar = () => {
     const { data: session } = useSession();
     return (
@@ -29,13 +30,17 @@ export const Appbar = () => {
                     Standings
                 </div>
             </div>
-            {session ? (
-            <div>
-                <Avatar/>
+            <div className="flex items-center gap-4">
+                {session ? (
+                <div>
+                    <Avatar/>
+                </div>
+                ) : (
+                    <button onClick={() => signIn()}>Sign in</button>
+                )}
+                <ModeToggle />
             </div>
-            ) : (
-                <button onClick={() => signIn()}>Sign in</button>
-            )}
+            
             
         </div>
     )
